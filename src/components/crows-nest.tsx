@@ -7,7 +7,7 @@ import { dock } from "@/lib/ship";
  * A simple client component that calls `dock()` whenever
  * the URL (pathname) changes, indicating the new route has loaded.
  */
-export default function NavigationWatcher() {
+export default function CrowsNest() {
   const pathname = usePathname();
   const prevPathname = useRef(pathname);
 
@@ -15,7 +15,8 @@ export default function NavigationWatcher() {
     if (prevPathname.current !== pathname) {
       prevPathname.current = pathname;
 
-      // Second layer of security
+      console.log("path changed:", pathname);
+      // Notify sailors that the ship has docked
       dock();
     }
   }, [pathname]);
