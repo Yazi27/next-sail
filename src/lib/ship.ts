@@ -10,7 +10,7 @@ export function setSail(): void {
 export function dock(): void {
   isSailing = false;
   console.log("Docking");
-  if (subscriber) subscriber(isSailing);
+  subscriber?.(isSailing);
 }
 
 export function board(callback: (sailing: boolean) => void): () => void {

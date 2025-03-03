@@ -14,9 +14,7 @@ export default function CrowsNest() {
   useEffect(() => {
     if (prevPathname.current !== pathname) {
       prevPathname.current = pathname;
-
       console.log("path changed:", pathname);
-      // Notify sailors that the ship has docked
       dock();
     }
   }, [pathname]);

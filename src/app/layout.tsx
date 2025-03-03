@@ -1,3 +1,4 @@
+// app/layout.tsx
 import "./globals.css";
 import React from "react";
 import Sailor from "@/components/Sailor";
@@ -11,8 +12,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen">
+        <CrowsNest />
         <Sailor fallback={<div>Immediate Client Skeleton...</div>}>
-          <CrowsNest />
           {children}
         </Sailor>
       </body>

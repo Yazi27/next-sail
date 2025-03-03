@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { board, getVoyageStatus } from "../lib/ship";
+import { board, getVoyageStatus } from "@/lib/ship";
 
 interface SailorProps {
   fallback: React.ReactNode;
@@ -12,10 +12,11 @@ interface SailorProps {
 export default function Sailor({ fallback, children }: SailorProps) {
   const [isSailing, setIsSailing] = useState(getVoyageStatus());
 
-  console.log("Sailor isSailing:", isSailing);
+  console.log("rendering");
 
   useEffect(() => {
-    const unsubscribe = board((sailing) => {
+    const unsubscribe = board((sailing: boolean) => {
+      console.log("Calling callback", sailing);
       setIsSailing(sailing);
     });
     return () => unsubscribe();
