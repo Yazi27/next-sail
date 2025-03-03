@@ -1,13 +1,20 @@
+// app/layout.tsx
+import Sailor from "../components/Sailor";
 import "./globals.css";
-export default async function RootLayout({
+import React from "react";
+
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-  content: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className="h-screen">{children}</body>
+      <body className="h-screen">
+        <Sailor fallback={<div>Immediate Client Skeleton...</div>}>
+          {children}
+        </Sailor>
+      </body>
     </html>
   );
 }

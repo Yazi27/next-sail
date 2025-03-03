@@ -1,14 +1,13 @@
+// app/page.tsx (example)
 "use client";
 import React from "react";
-import Link from "next/link";
+import Captain from "../components/Captain";
 
 export default function HomePage() {
   return (
-    <div className="h-full flex flex-col items-center justify-center gap-y-4">
-      <div>Home Page</div>
-      <Link prefetch={false} href="/test">
-        Test
-      </Link>
+    <div>
+      <h1>Home Page</h1>
+      <Captain href="/test">Go to Test</Captain>
     </div>
   );
 }
