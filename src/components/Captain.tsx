@@ -12,7 +12,6 @@ interface CaptainProps {
 
 export default function Captain({ href, children }: CaptainProps) {
   const handleClick = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 50));
     setSail();
   };
 

@@ -1,18 +1,18 @@
 // app/lib/ship.ts
 let isSailing = false;
-let subscriber: (() => void) | null = null;
+let subscriber: ((sailing: boolean) => void) | null = null;
 
 export function setSail(): void {
   isSailing = true;
-  if (subscriber) subscriber();
+  if (subscriber) subscriber(isSailing);
 }
 
 export function dock(): void {
   isSailing = false;
-  if (subscriber) subscriber();
+  if (subscriber) subscriber(isSailing);
 }
 
-export function board(callback: () => void): () => void {
+export function board(callback: (sailing: boolean) => void): () => void {
   subscriber = callback;
   return () => {
     subscriber = null;

@@ -12,17 +12,19 @@ interface SailorProps {
 export default function Sailor({ fallback, children }: SailorProps) {
   const [isSailing, setIsSailing] = useState(getVoyageStatus());
 
+  console.log("Sailor isSailing:", isSailing);
+
   useEffect(() => {
-    // Subscribe to the ship's status changes
-    const unsubscribe = board(() => {
-      setIsSailing(getVoyageStatus());
+    const unsubscribe = board((sailing) => {
+      setIsSailing(sailing);
     });
     return () => unsubscribe();
   }, []);
 
-  if (isSailing) {
-    return <>{fallback}</>;
-  }
-
-  return <>{children}</>;
+  return (
+    <>
+      <div style={{ display: isSailing ? "none" : "block" }}>{children}</div>
+      {isSailing && fallback}
+    </>
+  );
 }
