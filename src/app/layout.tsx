@@ -1,8 +1,10 @@
 // app/layout.tsx
 import "./globals.css";
 import React from "react";
-import Sailor from "@/components/Sailor";
+
 import CrowsNest from "@/components/crows-nest";
+import Skeleton from "@/components/skeleton";
+import Sailor from "@/components/sailor";
 
 export default function RootLayout({
   children,
@@ -13,9 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-screen">
         <CrowsNest />
-        <Sailor fallback={<div>Immediate Client Skeleton...</div>}>
-          {children}
-        </Sailor>
+        <Sailor fallback={<Skeleton />}>{children}</Sailor>
       </body>
     </html>
   );

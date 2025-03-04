@@ -19,13 +19,13 @@ function StableRenderer({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <>
       {isSailing ? (
-        <div key="fallback">{fallback}</div>
+        <React.Fragment key="fallback">{fallback}</React.Fragment>
       ) : (
-        <div key="children">{children}</div>
+        <React.Fragment key="children">{children}</React.Fragment>
       )}
-    </div>
+    </>
   );
 }
 

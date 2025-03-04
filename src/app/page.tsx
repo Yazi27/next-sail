@@ -1,13 +1,13 @@
 // app/page.tsx (example)
 "use client";
+import Captain from "@/components/captain";
 import React from "react";
-import Captain from "../components/Captain";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center h-full">
       <h1>Home Page</h1>
-      <Captain href="/test">Go to Test</Captain>
+      <Captain href="/test">Client Fallback</Captain>
     </div>
   );
 }
